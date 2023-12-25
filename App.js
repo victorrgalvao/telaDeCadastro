@@ -1,19 +1,17 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-
+import "./src/config/firebase"
+import { RootSiblingParent } from 'react-native-root-siblings';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import CadastroUsuarioScreen from './telas/TeladeCadatro';
-import TelaCadastroConfirmado from './telas/confirmacaoCadastro';
+import Rotas from './telas/route';
 
 export default function App() {
-  const stack = createNativeStackNavigator();
+
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName='cadastro'>
-        <stack.Screen name='cadastro' component={CadastroUsuarioScreen}></stack.Screen>
-        <stack.Screen name='cadastro-resultado' component={TelaCadastroConfirmado}></stack.Screen>
-      </stack.Navigator>
+      <RootSiblingParent>
+        <Rotas/>
+      </RootSiblingParent>
     </NavigationContainer>
   );
 }
